@@ -7,17 +7,15 @@ let speed = document.getElementById("speed_input").value;
 function createBars(num = arrLength) {
   barsContainer.innerHTML = "";
   arr = [];
-  // Set total container width (same as style.css)
   const totalWidth = 1200;
-  // Calculate dynamic bar width: (container width - margin * numBars) / numBars
-  const margin = 2; // px (single side, so bar's margin = 2px)
+  const margin = 2; 
   const barWidth = Math.floor((totalWidth - num * margin * 2) / num);
 
   for (let i = 0; i < num; i++) {
     let val = Math.floor(Math.random() * 400) + 10;
     arr.push(val);
     let bar = document.createElement("div");
-    bar.classList.add("bar", "yellow"); // default color: yellow
+    bar.classList.add("bar", "yellow"); 
     bar.style.height = `${val}px`;
     bar.style.width = `${barWidth}px`;
     bar.style.margin = `0 ${margin}px`;
@@ -49,7 +47,6 @@ function swap(el1, el2) {
   el2.style.height = temp;
 }
 
-// Helper for color transitions
 function setBarColor(bar, color) {
   bar.classList.remove("red", "green", "yellow", "orange");
   bar.classList.add(color);
@@ -203,7 +200,7 @@ document.getElementById("mergeSort").addEventListener("click", async () => {
   let bars = document.querySelectorAll(".bar");
   await mergeSortHelper(bars, 0, bars.length - 1);
 });
-// Disable and enable buttons while sorting
+
 function disableButtons() {
   document.querySelectorAll("button").forEach((btn) => (btn.disabled = true));
 }
